@@ -71,7 +71,8 @@ mydb = pymysql.connect(host='localhost',
 
 #output the csv file to json file
 cursor = mydb.cursor()
-rows = csv.reader(open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\DE challenge\data\people.csv',encoding="utf8"))
+rows = csv.reader(open('data\people.csv',encoding="utf8"))
+next(rows)
 with open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\DE challenge\data\cToJ_output .json', 'w') as json_file:
   rows = [{'given_name':row[0], 'family_name':row[1], 'date_of_birth' : row[2], 'place_of_birth':row[1]} for row in rows]
   json.dump(rows,json_file)
