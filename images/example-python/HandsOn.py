@@ -57,6 +57,7 @@ mydb = pymysql.connect(host='localhost',
  #output the table to a csv file
 cursor = mydb.cursor()
 sql = "select places.country, count(people.given_name) from places inner join people on places.city = people.place_of_birth group by country"
+#hello
 
 cursor.execute(sql)
 rows = cursor.fetchall()
