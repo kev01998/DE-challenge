@@ -18,7 +18,7 @@ tbpeople = sqlalchemy.schema.Table('people', metadata, autoload=True, autoload_w
 tbplaces = sqlalchemy.schema.Table('places', metadata, autoload=True, autoload_with=engine)
 
 #read the CSV data file places into the table places    
-with open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\DE challenge\data\places.csv', encoding="utf8") as csv_file:
+with open(r'data\places.csv', encoding="utf8") as csv_file:
   reader = csv.reader(csv_file)
   next(reader)
   for row in reader: 
@@ -27,13 +27,13 @@ with open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solu
 
 
 # read the CSV data file people into the table people
-with open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\DE challenge\data\people.csv', encoding="utf8") as csv_file:
+with open(r'data\people.csv', encoding="utf8") as csv_file:
   reader = csv.reader(csv_file)
   next(reader)
   for row in reader: 
     connection.execute(tbpeople.insert().values(given_name = row[0],family_name = row[1],date_of_birth = row[2],place_of_birth = row[3]))
 #output the table to a JSON file
-with open(r'C:\Users\KevinAiwala\Downloads\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\Solution_DE-Challenge_Kevin-main\DE challenge\data\summary_output.json', 'w') as json_file:
+with open(r'data\summary_output.json', 'w') as json_file:
   rows = connection.execute(sqlalchemy.sql.select([tbplaces.c.country,sqlalchemy.func.count(tbpeople.c.given_name)]).join(tbpeople,tbpeople.c.place_of_birth==tbplaces.c.city).group_by(tbplaces.c.country)).fetchall() 
   rows = {row[0]: row[1] for row in rows}
   json.dump(rows, json_file, separators=(',', ':'))
