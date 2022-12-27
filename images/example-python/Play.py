@@ -1,7 +1,8 @@
 import csv
 import json
 import pymysql
-
+# Python code to connect to the database in docker and to prform ETL using pymysql.
+# Here using relative path of files.
 # connect to  pymysql database
 mydb = pymysql.connect(host='localhost',
     user='root',
