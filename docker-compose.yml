@@ -1,5 +1,5 @@
 version: "3.7"
-
+# Docker compos file to get all work back in a moment just in case of crash.
 services:
   database:
     image: mysql:8.0

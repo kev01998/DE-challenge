@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Python code to connect to the database in docker and to prform ETL using pymysql.
-#Here using full path of files.
+#Here using full path of_files
 
 import pymysql
 import csv

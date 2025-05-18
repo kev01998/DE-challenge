@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# Python code to connect to database in docker and to prform ETL using Sqlalchemy.
+# Python code to connect to database_mysql in docker and to prform ETL using Sqlalchemy.
 import csv
 import json
 import sqlalchemy

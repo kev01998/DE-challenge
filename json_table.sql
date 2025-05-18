@@ -2,6 +2,6 @@ drop table if exists tbjson;
 
 CREATE TABLE `tbjson`
 (
-    `person` varchar(80),
+    `person` varchar(70),
     `year`   varchar(80)
 );
