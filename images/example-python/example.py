@@ -3,7 +3,7 @@
 import csv
 import json
 import sqlalchemy
-import pymysql
+
 # connect to t pymysqlhe database
 engine = sqlalchemy.create_engine('mysql+pymysql://root:password@127.0.0.1:3306/codetest')
 

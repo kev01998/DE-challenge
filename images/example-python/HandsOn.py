@@ -51,7 +51,7 @@ with open(r'C:\Users\KevinAiwala\Downloads\Solution\Solution_DE-Challenge_Kevin-
     json.dump(rows, json_file)
 mydb.commit()
 cursor.close()
- 
+ exit
 
  #output the table to a csv file
 cursor = mydb.cursor()
